@@ -49,10 +49,22 @@ class productManager {
     let colecciones = await this.getProducts();
     if (!colecciones.find((i) => i.id === id)) {
       console.log(`Producto con ID: "${id}", no existe.`);
+     
     } else {
       console.log(colecciones.find((i) => i.id === id));
     }
   };
+  /*getXProduct = async (x) => {
+    try {
+      let colecciones = await fs.readFile(this.path, "utf-8");
+      return JSON.parse(colecciones);
+    } catch (error) {
+      await fs.writeFile(this.path, "[]");
+      let colecciones = await fs.readFile(this.path, "utf-8");
+      return JSON.parse(colecciones);
+    }
+  };*/
+
 
   deleteProduct = async (id) => {
     let colecciones = await this.getProducts();
@@ -222,4 +234,4 @@ const producto = new productManager("./listadoDeProductos.json");
 
 
 producto.test();
-module.exports = new productManager();
+module.exports = new productManager("./listadoDeProductos.json");
