@@ -47,13 +47,14 @@ class productManager {
 
   getProductById = async (id) => {
     let colecciones = await this.getProducts();
-    if (!colecciones.find((i) => i.id === id)) {
+    if (!colecciones.find((i) => i.id == id)) {
       console.log(`Producto con ID: "${id}", no existe.`);
-     
     } else {
-      console.log(colecciones.find((i) => i.id === id));
+      console.log(colecciones.find((i) => i.id == id));
+      return colecciones.find((i)=> i.id == id);
     }
   };
+
   /*getXProduct = async (x) => {
     try {
       let colecciones = await fs.readFile(this.path, "utf-8");

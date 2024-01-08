@@ -11,9 +11,12 @@ app.get('/ping', (req, res) => {
 
 app.get("/products/:id", async (req, res)=>{
   try {
+    req.query.limit
     let id = req.params.id;
+    console.log(req.params.id);
     // Llamado a productManager
-    let producto = await productManagerApp.getProductById(id);
+    
+    let producto = await productManagerApp.getProductById(id); 
     // Salida
     res.send(producto);
   } catch (error) {
@@ -22,6 +25,7 @@ app.get("/products/:id", async (req, res)=>{
     res.status(404).send('Producto no encontrado'); // Envía una respuesta 404 al cliente
   }
 })
+
 
 app.get('/products', async (req, res) => {
     try {
