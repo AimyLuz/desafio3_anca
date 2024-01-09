@@ -49,6 +49,7 @@ class productManager {
     let colecciones = await this.getProducts();
     if (!colecciones.find((i) => i.id == id)) {
       console.log(`Producto con ID: "${id}", no existe.`);
+      return `Producto "${id}", no existe.`
     } else {
       console.log(colecciones.find((i) => i.id == id));
       return colecciones.find((i)=> i.id == id);
